@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
         /*grunt.file.write( options.outputfile, content );*/
 
-        var args = [];
+        var args = [require.resolve('goog-webfont-dl')];
         var all = true;
         var types = [];
         _.each(['ttf','eot','woff','woff2','svg'], function(value, key) {
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
         grunt.log.write('Start download of Google WebFont sourcefiles...');
 
         grunt.util.spawn({
-            cmd: require.resolve('goog-webfont-dl'),
+            cmd: 'node',
             args: args
         }, function(err, result, code) {
 
